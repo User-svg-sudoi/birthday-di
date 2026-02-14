@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Di ❤️</title>
 
@@ -74,13 +75,13 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     margin-top: 20px;
     max-width: 1200px;
     margin-left: auto;
-    margin-right: auto; /* Centers the grid */
-    justify-items: center; /* Centers items within the grid */
+    margin-right: auto;
+    justify-items: center;
 }
 
 .card {
@@ -90,7 +91,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center; /* Centers content inside card */
+    text-align: center;
 }
 
 .card:hover {
@@ -100,10 +101,10 @@ body {
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 300px;
     object-fit: cover;
     transition: transform 0.5s ease;
-    border-radius: 15px 15px 0 0; /* Rounded top corners */
+    border-radius: 15px 15px 0 0;
 }
 
 .card p {
@@ -127,11 +128,6 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.next-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
-
 /* SECTION 3 - FULL-SCREEN IMAGE VIEWER */
 .fullscreen {
     display: none;
@@ -150,13 +146,13 @@ body {
 .fullscreen img {
     max-width: 50%;
     max-height: 80%;
-    transition: transform 0.5s ease;
-    object-fit: cover;
+    transition: all 0.5s ease;
+    object-fit: contain;
     border-radius: 10px;
 }
 
 .fullscreen img.slide {
-    transform: translateX(-10%); /* Slide image to the left */
+    transform: translateX(-15%);
 }
 
 .fullscreen .message {
@@ -167,12 +163,12 @@ body {
     font-size: 20px;
     color: white;
     max-width: 35%;
-    transition: opacity 0.5s ease;
-    background: rgba(0, 0, 0, 0.6); /* Dark background for message */
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center; /* Center align the text */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: rgba(255, 75, 125, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .fullscreen.active {
@@ -184,190 +180,112 @@ body {
     top: 20px;
     left: 20px;
     padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.8);
+    background: white;
     border: none;
     border-radius: 30px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.fullscreen button:hover {
-    background: rgba(255, 255, 255, 1);
 }
 
 /* SECTION 4 - FINAL MESSAGE */
 .final {
-    height: 100vh;
-    background: url('final-bg.jpg') center/cover no-repeat;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('final-bg.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
     color: white;
-    position: relative;
-}
-
-.final::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    top: 0;
-    left: 0;
 }
 
 .final-content {
-    position: relative;
     z-index: 2;
-    animation: fadeIn 2s ease;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .final h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: #ff9a9e;
 }
 
 .final p {
-    font-size: 18px;
-    line-height: 1.6;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-size: 19px;
+    line-height: 1.8;
+    text-align: justify;
 }
 
 /* MOBILE FRIENDLY */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 images per row on tablets/medium devices */
-    }
-
-    .final h2 {
-        font-size: 24px;
-    }
-
-    .final p {
-        font-size: 16px;
-    }
-
-    .fullscreen img {
-        max-width: 70%;
-    }
-
-    .fullscreen .message {
-        font-size: 16px;
-        max-width: 25%;
-        right: 2%;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 24px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr; /* 1 image per row on small devices */
-    }
-
-    .final h2 {
-        font-size: 20px;
-    }
-
-    .final p {
-        font-size: 14px;
-    }
-
-    .fullscreen img {
-        max-width: 80%;
-    }
-
-    .fullscreen .message {
-        font-size: 14px;
-        max-width: 40%;
-        position: static;
-        margin-top: 20px;
-        transform: none;
-    }
-
-    .fullscreen {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 100px;
-    }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .fullscreen img.slide { transform: none; }
+    .fullscreen { flex-direction: column; padding: 20px; }
+    .fullscreen img { max-width: 90%; max-height: 50%; }
+    .fullscreen .message { position: static; max-width: 100%; transform: none; margin-top: 20px; font-size: 16px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO SECTION -->
 <section class="hero">
     <h1>🎉 HAPPY BIRTHDAY DI ❤️</h1>
     <button onclick="scrollToGallery()">Tap for Surprise ↓</button>
 </section>
 
-<!-- GALLERY SECTION -->
 <section class="gallery-section" id="gallery">
     <h2>Some Beautiful Memories 💕</h2>
 
     <div class="grid">
-        <div class="card" onclick="openImage('1.jpg', 'From childhood fights to forever bond ❤️')">
-            <img src="1.jpg" alt="Memory 1">
-            <p>From childhood fights to forever bond ❤️</p>
+        <div class="card" onclick="openImage('1.jpg', 'Me always trying some random lenses and filters... and you being the perfect partner for all our legendary pagalpanti together. Thanks for never saying no to my weird ideas! 😈✨')">
+            <img src="1.jpg">
+            <p>The "Filter" Reality ❤️</p>
         </div>
-        <div class="card" onclick="openImage('2.jpg', 'The strongest and kindest soul I know 🩺')">
-            <img src="2.jpg" alt="Memory 2">
-            <p>The strongest and kindest soul I know 🩺</p>
+        <div class="card" onclick="openImage('2.jpg', 'Didi, look at this... Hamari masti kabhi khatam nahi hone wali! 😂 No matter how old we get, my main job will always be to annoy you and your main job will be to handle my craziness.')">
+            <img src="2.jpg">
+            <p>The Chaos Theory 😊</p>
         </div>
-        <div class="card" onclick="openImage('3.jpg', 'Always protecting, always caring 💕')">
-            <img src="3.jpg" alt="Memory 3">
-            <p>Always protecting, always caring 💕</p>
+        <div class="card" onclick="openImage('3.jpg', 'Honestly, we missed you so much during the last few Diwalis, but having you back home this time made it so special. We had so much fun together! 🪔✨')">
+            <img src="3.jpg">
+            <p>Home for Diwali 💕</p>
         </div>
-        <div class="card" onclick="openImage('4.jpg', 'Hard work made you Dr. Vanshika 👩‍⚕️')">
-            <img src="4.jpg" alt="Memory 4">
-            <p>Hard work made you Dr. Vanshika 👩‍⚕️</p>
+        <div class="card" onclick="openImage('4.jpg', 'Finally... Doctor ban hi gayi! 🩺💉 From dealing with my literal headaches to making sure I had my dark coffee, you’ve always been there for me. Chalo, ab mera bhi family doctor FREE mein!')">
+            <img src="4.jpg">
+            <p>Dr. Didi 👩‍⚕️</p>
         </div>
-        <div class="card" onclick="openImage('5.jpg', 'Your smile heals more than medicine ✨')">
-            <img src="5.jpg" alt="Memory 5">
-            <p>Your smile heals more than medicine ✨</p>
+        <div class="card" onclick="openImage('5.jpg', 'Hum 3 bade bacche! Par sach toh yeh hai ki isme se 2 bacche parents ke favorite nahi hai. Bas ek hi baccha favourite hai... and we all know who that person is! 🏆🤔')">
+            <img src="5.jpg">
+            <p>The Favorite Child ✨</p>
         </div>
-        <div class="card" onclick="openImage('6.jpg', 'Forever proud to call you my sister 💖')">
-            <img src="6.jpg" alt="Memory 6">
-            <p>Forever proud to call you my sister 💖</p>
+        <div class="card" onclick="openImage('6.jpg', 'Me, jo hamesha ajeeb baatein karta hu... aur aap, jo hamesha patience ke saath meri bakwas sunti ho (hehehehehe). Thanks for being my 24/7 therapist! 💖')">
+            <img src="6.jpg">
+            <p>The Listener 💖</p>
         </div>
     </div>
 
     <button class="next-btn" onclick="scrollToFinal()">One More Thing ↓</button>
 </section>
 
-<!-- FULLSCREEN IMAGE VIEWER -->
 <div class="fullscreen" id="fullscreen">
-    <img id="fullscreenImg" alt="Fullscreen Image">
+    <img id="fullscreenImg">
     <div class="message" id="fullscreenMessage"></div>
-    <button onclick="closeFullscreen()">← Back to Gallery</button>
+    <button onclick="closeFullscreen()">← Back</button>
 </div>
 
-<!-- FINAL SECTION -->
 <section class="final" id="final">
     <div class="final-content">
-        <h2>Happy 25th Birthday, Di 🎂</h2>
+        <h2>Happy Birthday, Vanshika Didi! 🎂✨</h2>
         <p>
-            You heal the world with your hands,<br>
-            and you’ve healed my life with your love.<br><br>
-            May this year give you everything<br>
-            that your heart quietly wishes for.<br><br>
-            I’m always proud of you.<br>
-            I’m always grateful for you.<br><br>
-            ❤️ Forever your little brother ❤️
+            From being neighbors to becoming more than real brother and sister—I don’t know how to express this, but you know what, I really don’t have any elder sister in my life rather than you. You are the only one to whom I can go up to and have a conversation with about anything.<br><br>
+            You being my elder sister taught me more than a real elder sister could have taught me—especially about respecting girls and all the other stuff you made me understand to make me a better person. <br><br>
+            I know that you don't understand anything that I tell you about my coding stuff, but still, you listen just for me. I don’t want to make this emotional anymore, so keep in mind that you are the best... but I am the bestest! 😂🏆<br><br>
+            <strong>❤️ Forever your little brother ❤️</strong>
         </p>
     </div>
 </section>
@@ -387,7 +305,6 @@ function openImage(imgSrc, message) {
     img.src = imgSrc;
     msg.innerText = message;
     document.getElementById("fullscreen").classList.add("active");
-    // Slide the image to the left after a short delay
     setTimeout(() => {
         img.classList.add("slide");
     }, 100);
